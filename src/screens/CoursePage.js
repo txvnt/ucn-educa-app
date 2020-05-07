@@ -16,7 +16,7 @@ const CoursePage = props => {
         return(
             <TouchableOpacity onPress={() => onPressItem(link)} style={styles.courseContainer}>
                 <Text style={styles.courseTitle}>{nombre}</Text>
-                { link.includes('backends') && <Text style={styles.courseCode}>{link}</Text>}
+                <Text style={styles.courseCode}>{link.includes('backends') ? link : 'Carpeta'}</Text>
             </TouchableOpacity>
         )
     }
@@ -39,7 +39,7 @@ const CoursePage = props => {
             <View style={styles.container}>
                 <FlatList
                     data={documents}
-                    contentContainerStyle={{ marginHorizontal: 16, marginTop: 12, paddingBottom: 32}}
+                    contentContainerStyle={{marginTop: 12, paddingBottom: 32}}
                     renderItem={renderCourse}
                 />
             </View> 
@@ -59,24 +59,27 @@ const styles = StyleSheet.create({
     loadingContainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#000'
     },
     container: {
         flex: 1,
+        backgroundColor: '#000'
     },
     courseContainer: {
-        padding: 16,
-        backgroundColor: '#fff',
-        marginVertical: 8,
-        borderRadius: 8
+        paddingVertical: 20,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        borderBottomWidth: 1,
+        borderColor: 'rgb(24,24,26)'
     },
     courseTitle: {
-        color: '#333',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 16
     },
     courseCode: {
-        color: '#999',
+        borderColor: 'rgb(142,142,145)',
         fontSize: 12,
         marginTop: 8
     }

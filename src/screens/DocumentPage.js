@@ -14,7 +14,7 @@ const DocumentPage = props => {
     return(
         <WebView 
             source={{ 
-            uri: url,
+                uri: url,
             }} 
             sharedCookiesEnabled={true}
             style={{ flex: 1 }} 

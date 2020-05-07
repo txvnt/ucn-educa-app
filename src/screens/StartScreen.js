@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, StatusBar, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, StatusBar, AsyncStorage, ActivityIndicator } from 'react-native';
 
 import { login, getCourses } from '../services/Login'
 
@@ -43,7 +43,6 @@ const StartScreen = props => {
     const { dispatch } = props;
     dispatch(setDatoUsuario('rut', rut));
     dispatch(setDatoUsuario('password', password));
-    props.navigation.navigate('Dashboard');
   }
 
   useEffect(() => {
@@ -52,7 +51,8 @@ const StartScreen = props => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle='dark-content'/>
+      <StatusBar barStyle='light-content'/>
+      <ActivityIndicator color='white'/>
     </View>
   );
 }
@@ -63,8 +63,8 @@ export default connect(mapStateToProps)(StartScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    paddingTop: 64
+    backgroundColor: '#0e1424',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
